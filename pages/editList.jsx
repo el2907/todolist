@@ -4,16 +4,11 @@ import * as yup from "yup"
 import { useCallback } from "react"
 import { useContext } from "./components/ContextProvider"
 
-  const initialValues={lists.find(({ id }) => id === Id)}
-
 const validationSchema = yup.object().shape({
   name: yup.string().required().label("Name"),
 })
 
 const EditList = (props) => {
-  const {
-    params: { listId } } = props
-  const { updatedList, lists} = useContext()
   const handleSubmit = useCallback(
     (value) => {
       updatedList(values)
