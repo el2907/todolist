@@ -1,26 +1,11 @@
 import Link from "next/link"
-import { useState } from "react"
-const initialList = [
-  {
-    id: 1,
-    name: "Homeworks",
-  },
-]
+import List from "./List"
 
 const Navbar = () => {
-  const [lists, setLists] = useState(initialList)
-
   return (
     <div>
       <div className="overflow-x-auto flex border-b pt-2 w-full">
-        {lists.map((list) => (
-          <div key={list.id}>
-            <p className="text-2xl first:border-l border-r border-t rounded-t-lg">
-              {list.name}
-            </p>
-          </div>
-        ))}
-
+        <List />
         <div className="first:border-l border-r border-t rounded-t-lg ">
           <Link href="/createList">
             <svg
