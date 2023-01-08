@@ -2,7 +2,7 @@ import Head from "next/head"
 import { Formik, Form } from "Formik"
 import * as yup from "yup"
 import { useCallback } from "react"
-import { contextProvider } from "./components/ContextProvider"
+import { addList } from "./components/ContextProvider"
 
 const initialValues = {
   list: "",

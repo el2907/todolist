@@ -21,6 +21,7 @@ export const useContext = () => useNativeContext(Context)
 
 const ContextProvider = (props) => {
   const [lists, setLists] = useState(initialList)
+  const [tasks, setTasks] = useState(initialList)
   const [Id, setId] = useState(2)
 
   const getId = useCallback(() => {
@@ -44,6 +45,21 @@ const ContextProvider = (props) => {
     []
   )
 
+  const addTasks = useCallback((tasks) => {
+    setTasks((tasks) =>
+      tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    )
+  })
+  const updateTasks = useCallback((updateTasks) => {
+    setTasks((tasks) =>
+      tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    )
+  })
+  const deleteTasks = useCallback((taskId) => {
+    ;(taskId) => setTasks((tasks) => tasks.filter(({ id }) => id !== taskId)),
+      []
+  })
+
   return (
     <div>
       {...props}
@@ -53,6 +69,9 @@ const ContextProvider = (props) => {
         addList,
         updateList,
         deleteList,
+        addTasks,
+        updateTasks,
+        deleteTasks,
       }}
     </div>
   )

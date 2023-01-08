@@ -1,6 +1,8 @@
 import Head from "next/head"
 import { Formik, Form } from "Formik"
 import * as yup from "yup"
+import { useCallback } from "react"
+import { addTask } from "./components/ContextProvider"
 
 const initialValues = {
   task: "",
@@ -10,6 +12,13 @@ const validationSchema = yup.object().shape({
 })
 
 const CreateTask = () => {
+  const handleSubmit = useCallback(
+    (values) => {
+      addTask(values)
+      console.log(values)
+    },
+    [addTask]
+  )
   return (
     <div>
       <Head>
@@ -27,6 +36,7 @@ const CreateTask = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
+          onSubmit={handleSubmit}
         >
           <Form>
             <input

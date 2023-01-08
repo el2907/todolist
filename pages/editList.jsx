@@ -2,7 +2,7 @@ import Head from "next/head"
 import { Formik, Form } from "Formik"
 import * as yup from "yup"
 import { useCallback } from "react"
-import { useContext } from "./components/ContextProvider"
+import { updatedList } from "./components/ContextProvider"
 
 const validationSchema = yup.object().shape({
   name: yup.string().required().label("Name"),

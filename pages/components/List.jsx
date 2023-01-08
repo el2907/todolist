@@ -6,7 +6,11 @@ const initialList = [
   },
   {
     id: 2,
-    name: "list 2",
+    name: "courses",
+  },
+  {
+    id: 3,
+    name: "languages",
   },
 ]
 

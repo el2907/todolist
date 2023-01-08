@@ -1,6 +1,7 @@
 import Head from "next/head"
 import { Formik, Form } from "Formik"
 import * as yup from "yup"
+import { updatedTask } from "./components/ContextProvider"
 
 const initialValues = {
   task: "",
@@ -9,9 +10,14 @@ const validationSchema = yup.object().shape({
   todo: yup.string().required().label("Enter your task"),
 })
 
-const UpdateTask = (name) => {}
-
 const EditTask = () => {
+  const handleSubmit = useCallback(
+    (value) => {
+      updatedTask(values)
+    },
+    [updatedTask]
+  )
+
   return (
     <div>
       <Head>
